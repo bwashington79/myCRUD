@@ -1,5 +1,6 @@
-package com.bobbyCRUD.jugtours.model;
+package com.bobbyCRUD.jugtours.repository;
 
+import com.bobbyCRUD.jugtours.model.Group;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
