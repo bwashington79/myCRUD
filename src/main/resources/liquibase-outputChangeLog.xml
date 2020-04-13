@@ -9,7 +9,7 @@
  ********************************************************************************************************************
  -->
 
-<include file="tm-3567-new-db-baseline.xml" relativeToChangelogFile="true"/>
+<include file="src/main/resources/db/changelog/schema/initial.xml" relativeToChangelogFile="true"/>
 
 
 </databaseChangeLog>
