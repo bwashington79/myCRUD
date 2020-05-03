@@ -18,7 +18,8 @@ spec:
     stage('Pull Postgres DB from Docker Hub') {
     checkout scm
       container('postgres') {
-      sh 'docker pull postgres'
+      kubectl pull postgres
+//       sh 'docker pull postgres'
         //         sh 'docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres'
 
       }
