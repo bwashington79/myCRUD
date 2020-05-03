@@ -1,6 +1,6 @@
 podTemplate(containers: [
     containerTemplate(name: 'builder', image: 'adoptopenjdk/openjdk11', ttyEnabled: true, command: 'cat'),
-    containerTemplate(name: 'db', image: 'postgres', args: -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres ,ttyEnabled: true, command: 'cat')]
+    containerTemplate(name: 'db', image: 'postgres' ,ttyEnabled: true, command: 'cat')]
     ) {
 
   node(POD_LABEL) {
