@@ -21,6 +21,8 @@ spec:
         sh 'chmod 777 mvnw'
 //         sh './mvnw clean install -B -U'
         sh 'echo BOBBY WASHINGTON'
+        sh 'docker pull postgres'
+
 //         sh 'docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres'
       }
     }
