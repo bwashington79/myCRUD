@@ -8,6 +8,8 @@ spec:
   containers:
   - name: builder
     image: adoptopenjdk/openjdk11
+  - name: db
+    image: postgres
     command:
     - cat
     tty: true
@@ -15,17 +17,6 @@ spec:
   ) {
 
   node(POD_LABEL) {
-    stage('Pull Postgres DB from Docker Hub') {
-    checkout scm
-      container('postgres') {
-      kubectl pull postgres
-//       sh 'docker pull postgres'
-        //         sh 'docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -p 5432:5432 -d postgres'
-
-      }
-    }
-  }
-
       stage('Build and test') {
       checkout scm
         container('builder') {
