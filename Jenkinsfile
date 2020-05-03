@@ -8,11 +8,11 @@ spec:
   containers:
   - name: builder
     image: adoptopenjdk/openjdk11
-  - name: db
-    image: postgres
     command:
     - cat
     tty: true
+  - name: db
+    image: postgres
 """
   ) {
 
