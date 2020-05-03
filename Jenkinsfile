@@ -1,20 +1,7 @@
-podTemplate(yaml: """
-apiVersion: v1
-kind: Pod
-metadata:
-  labels:
-    some-label: builder
-spec:
-  containers:
-  - name: builder
-    image: adoptopenjdk/openjdk11
-    command:
-    - cat
-    tty: true
-  - name: db
-    image: postgres
-"""
-  ) {
+podTemplate(containers: [
+    containerTemplate(name: 'builder', image: 'adoptopenjdk/openjdk11', ttyEnabled: true, command: 'cat'),
+    containerTemplate(name: 'db', image: 'postgres', ttyEnabled: true, command: 'cat')]
+    ) {
 
   node(POD_LABEL) {
       stage('Build and test') {
