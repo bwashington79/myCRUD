@@ -31,7 +31,6 @@ spec:
           sh 'chmod 777 mvnw'
           sh 'echo BOBBY WASHINGTON'
           //         sh './mvnw clean install -B -U'
-        }
-      }
     }
+  }
 }
