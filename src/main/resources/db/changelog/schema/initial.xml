@@ -13,12 +13,18 @@
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
+            <column name="user_id" type="VARCHAR(255)"/>
             <column name="address" type="VARCHAR(255)"/>
             <column name="city" type="VARCHAR(255)"/>
-            <column name="stateOrProvince" type="VARCHAR(255)"/>
+            <column name="state_or_province" type="VARCHAR(255)"/>
             <column name="country" type="VARCHAR(255)"/>
-            <column name="postalCode" type="VARCHAR(255)"/>
+            <column name="postal_code" type="VARCHAR(255)"/>
             <column name="preference_id" type="BIGINT"/>
+        </createTable>
+        <createTable tableName="user_group_events">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
         </createTable>
         <rollback>
             drop table user_group;
