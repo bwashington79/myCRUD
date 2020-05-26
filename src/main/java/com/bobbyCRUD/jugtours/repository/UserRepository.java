@@ -1,8 +1,8 @@
 package com.bobbyCRUD.jugtours.repository;
 
-import com.bobbyCRUD.jugtours.model.User;
+import com.bobbyCRUD.jugtours.model.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<User, Long> {
-    User findByName(String name);
+public interface UserRepository extends JpaRepository<UserEntity, Long> {
+    UserEntity findByName(String name);
 }
