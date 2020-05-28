@@ -3,38 +3,39 @@ package com.bobbyCRUD.jugtours.model;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.criteria.CriteriaBuilder;
 import java.sql.Date;
-import java.time.Instant;
 
 @Entity
-@Table(name = "event", schema = "public", catalog = "postgres")
+@Table(name = "events", schema = "public", catalog = "postgres")
 public class EventEntity {
-    private long id;
-    private Instant date;
+    private int id;
+    private Date date;
     private String title;
     private String description;
     private Integer userId;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    public long getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
     @Basic
     @Column(name = "date")
-    public Instant getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(Instant date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -86,7 +87,7 @@ public class EventEntity {
 
     @Override
     public int hashCode() {
-        int result = (int) (id ^ (id >>> 32));
+        int result = id;
         result = 31 * result + (date != null ? date.hashCode() : 0);
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (description != null ? description.hashCode() : 0);

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+<!--
+ ********************************************************************************************************************
+ * SCHEMA
+ ********************************************************************************************************************
+ -->
+        <changeSet author="bobby.washington (generated)" id="1590630378131-1">
+            <createSequence sequenceName="events_id_seq"/>
+        </changeSet>
+        <changeSet author="bobby.washington (generated)" id="1590630378131-2">
+            <createSequence sequenceName="groups_id_seq"/>
+        </changeSet>
+        <changeSet author="bobby.washington (generated)" id="1590630378131-3">
+            <createSequence sequenceName="users_id_seq"/>
+        </changeSet>
+        <changeSet author="bobby.washington (generated)" id="1590630378131-4">
+            <createTable tableName="events">
+                <column autoIncrement="true" name="id" type="SERIAL">
+                    <constraints primaryKey="true" primaryKeyName="events_pk"/>
+                </column>
+                <column name="date" type="date"/>
+                <column name="title" type="VARCHAR(255)"/>
+                <column name="description" type="VARCHAR(255)"/>
+                <column name="user_id" type="INT"/>
+            </createTable>
+        </changeSet>
+        <changeSet author="bobby.washington (generated)" id="1590630378131-5">
+            <createTable tableName="groups">
+                <column autoIncrement="true" name="id" type="SERIAL">
+                    <constraints primaryKey="true" primaryKeyName="groups_pk"/>
+                </column>
+                <column name="name" type="VARCHAR(255)"/>
+                <column name="address" type="VARCHAR(255)"/>
+                <column name="city" type="VARCHAR(255)"/>
+                <column name="state_province" type="VARCHAR(255)"/>
+                <column name="country" type="VARCHAR(255)"/>
+                <column name="postal_code" type="INT"/>
+                <column name="user_id" type="INT"/>
+                <column name="event_id" type="INT"/>
+            </createTable>
+        </changeSet>
+        <changeSet author="bobby.washington (generated)" id="1590630378131-6">
+            <createTable tableName="users">
+                <column autoIncrement="true" name="id" type="SERIAL">
+                    <constraints primaryKey="true" primaryKeyName="users_pk"/>
+                </column>
+                <column name="name" type="VARCHAR(255)"/>
+                <column name="email" type="VARCHAR(255)"/>
+            </createTable>
+        </changeSet>
+        <changeSet author="bobby.washington (generated)" id="1590630378131-7">
+            <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="events" constraintName="events_users_id_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users"/>
+        </changeSet>
+        <changeSet author="bobby.washington (generated)" id="1590630378131-8">
+            <addForeignKeyConstraint baseColumnNames="event_id" baseTableName="groups" constraintName="groups_events_id_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="events"/>
+        </changeSet>
+        <changeSet author="bobby.washington (generated)" id="1590630378131-9">
+            <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="groups" constraintName="groups_users_id_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users"/>
+        </changeSet>
+    </databaseChangeLog>

@@ -1,19 +1,21 @@
 package com.bobbyCRUD.jugtours.model;
 
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.util.Set;
 
 @NoArgsConstructor
 @Entity
-@Table(name = "group", schema = "public", catalog = "postgres")
+@Table(name = "groups", schema = "public", catalog = "postgres")
 public class GroupEntity {
     private String name;
     private String address;
@@ -96,6 +98,7 @@ public class GroupEntity {
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -106,12 +109,12 @@ public class GroupEntity {
     }
 
     @OneToMany
-    @Column(name = "events")
+    @Column(name = "event_id")
     public Set<EventEntity> getEvents() {
         return events;
     }
 
-    public void setEvents(Set<EventEntity>  events) {
+    public void setEvents(Set<EventEntity> events) {
         this.events = events;
     }
 
