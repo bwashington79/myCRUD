@@ -67,6 +67,11 @@
 					</exclusion>
 				</exclusions>
 			</dependency>
+			<dependency>
+				<groupId>io.fabric8</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>0.33.0</version>
+			</dependency>
 <!--				<dependency>-->
 <!--					<groupId>org.liquibase.ext</groupId>-->
 <!--					<artifactId>liquibase-hibernate4</artifactId>-->
@@ -97,6 +102,27 @@
 						<propertyFile>src/main/resources/liquibase.properties</propertyFile>
 					</configuration>
 				</plugin>
+
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>0.33.0</version>
+						<configuration>
+							<images>
+								<image>
+									<alias>database</alias>
+									<name>postgres:9</name>
+									<run>
+										<wait>
+											<log>database system is ready to accept connections</log>
+											<time>20000</time>
+										</wait>
+									</run>
+								</image>
+							</images>
+						</configuration>
+					</plugin>
+
 			</plugins>
 		</build>
 	</project>
