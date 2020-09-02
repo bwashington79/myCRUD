@@ -271,7 +271,7 @@ _main() {
 		docker_create_db_directories
 		if [ "$(id -u)" = '0' ]; then
 			# then restart script as postgres user
-			exec gosu postgres "$BASH_SOURCE" "$@"
+			exec postgres "$BASH_SOURCE" "$@"
 		fi
 
 		# only run initialization on an empty data directory
