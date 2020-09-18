@@ -14,10 +14,4 @@ COPY ["mvnw", "pom.xml", "/app/"]
 
 WORKDIR /app
 
-#RUN ./mvnw verify
-
-
-
-
-
-
+RUN ./mvnw verify
