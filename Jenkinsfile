@@ -33,11 +33,6 @@ spec:
     command:
     - cat
     tty: true
-- name: myrabbit
-    image: rabbitmq
-    command:
-    - cat
-    tty: true
 """
   ) {
 
