@@ -23,19 +23,19 @@
                 <constraints nullable="false"/>
             </column>
             <column name="date" type="date"/>
-            <column name="title" type="VARCHAR(2147483647)"/>
-            <column name="description" type="VARCHAR(2147483647)"/>
+            <column name="title" type="VARCHAR(10485760)"/>
+            <column name="description" type="VARCHAR(10485760)"/>
         </createTable>
     </changeSet>
     <changeSet author="bobby.washington (generated)" id="1602696624810-5">
         <createTable tableName="group">
-            <column name="name" type="VARCHAR(2147483647)">
+            <column name="name" type="VARCHAR(10485760)">
                 <constraints nullable="false"/>
             </column>
-            <column name="address" type="VARCHAR(2147483647)"/>
-            <column name="city" type="VARCHAR(2147483647)"/>
-            <column name="state_province" type="VARCHAR(2147483647)"/>
-            <column name="country" type="VARCHAR(2147483647)"/>
+            <column name="address" type="VARCHAR(10485760)"/>
+            <column name="city" type="VARCHAR(10485760)"/>
+            <column name="state_province" type="VARCHAR(10485760)"/>
+            <column name="country" type="VARCHAR(10485760)"/>
             <column name="postal_code" type="INT"/>
             <column name="id" type="INT"/>
             <column name="user_id" type="INT">
@@ -47,8 +47,8 @@
             <column name="id" type="INT">
                 <constraints nullable="false"/>
             </column>
-            <column name="name" type="VARCHAR(2147483647)"/>
-            <column name="email" type="VARCHAR(2147483647)"/>
+            <column name="name" type="VARCHAR(10485760)"/>
+            <column name="email" type="VARCHAR(10485760)"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>

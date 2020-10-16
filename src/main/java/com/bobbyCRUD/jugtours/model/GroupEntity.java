@@ -44,6 +44,6 @@ public class GroupEntity {
     @ManyToOne(cascade = CascadeType.PERSIST)
     private UserEntity user;
 
-//    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//    private Set<EventEntity> events;
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    private Set<EventEntity> events;
 }

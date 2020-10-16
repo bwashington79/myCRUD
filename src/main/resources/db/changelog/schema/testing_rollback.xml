@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+<!--
+ ********************************************************************************************************************
+ * SCHEMA
+ ********************************************************************************************************************
+ --><changeSet id="Rollback_JUG-123" author="Bobby_Washington">
+    <tagDatabase tag="ver0.1"/>
+    </changeSet>
+    <changeSet id="JUG-123-Rollback-Test" author="Bobby_Washington">
+        <comment>Add New Column To Test Rollback</comment>
+        <addColumn schemaName="public" tableName="users">
+            <column name="not_needed_column" type="text"/>
+        </addColumn>
+        <rollback>
+            <dropColumn tableName="users" columnName="not_needed_column"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

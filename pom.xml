@@ -30,7 +30,7 @@
 			<dependency>
 				<groupId>org.liquibase</groupId>
 				<artifactId>liquibase-maven-plugin</artifactId>
-				<version>3.4.1</version>
+				<version>4.1.1</version>
 			</dependency>
 			<dependency>
 				<groupId>org.liquibase</groupId>
@@ -90,6 +90,7 @@
 					<version>3.4.1</version>
 					<configuration>
 						<propertyFile>src/main/resources/liquibase.properties</propertyFile>
+						<changeLogFile>src/main/resources/db/changelog/dbchangelog.xml</changeLogFile>
 					</configuration>
 				</plugin>
 			</plugins>

@@ -12,6 +12,9 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 -->
 
 <include file="schema/initial.xml" relativeToChangelogFile="true"/>
+<include file="schema/testing_rollback.xml" relativeToChangelogFile="true"/>
+<include file="schema/testing_rollback2.xml" relativeToChangelogFile="true"/>
+
 
 </databaseChangeLog>
 
