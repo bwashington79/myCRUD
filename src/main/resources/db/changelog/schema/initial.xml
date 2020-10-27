@@ -8,47 +8,101 @@
  * SCHEMA
  ********************************************************************************************************************
  -->
-    <changeSet author="bobby.washington (generated)" id="1602696624810-1">
-        <createSequence sequenceName="events_id_seq"/>
+<!--    <changeSet author="bobby.washington (generated)" id="1603242221488-1">-->
+<!--        <createSequence sequenceName="events_id_seq"/>-->
+<!--    </changeSet>-->
+<!--    <changeSet author="bobby.washington (generated)" id="1603242221488-2">-->
+<!--        <createSequence sequenceName="group_id_seq"/>-->
+<!--    </changeSet>-->
+<!--    <changeSet author="bobby.washington (generated)" id="1603242221488-3">-->
+<!--        <createSequence sequenceName="users_id_seq"/>-->
+<!--    </changeSet>-->
+<!--    <changeSet author="bobby.washington (generated)" id="1603242221488-4">-->
+<!--        <createTable tableName="events">-->
+<!--            <column autoIncrement="true" name="id" type="SERIAL">-->
+<!--                <constraints primaryKey="true" primaryKeyName="events_pk"/>-->
+<!--            </column>-->
+<!--            <column name="date" type="date"/>-->
+<!--            <column name="title" type="VARCHAR(225)"/>-->
+<!--            <column name="description" type="VARCHAR(225)"/>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+<!--    <changeSet author="bobby.washington (generated)" id="1603242221488-5">-->
+<!--        <createTable tableName="group">-->
+<!--            <column name="name" type="VARCHAR(225)">-->
+<!--                <constraints nullable="false"/>-->
+<!--            </column>-->
+<!--            <column name="address" type="VARCHAR(225)"/>-->
+<!--            <column name="city" type="VARCHAR(225)"/>-->
+<!--            <column name="state_province" type="VARCHAR(225)"/>-->
+<!--            <column name="country" type="VARCHAR(225)"/>-->
+<!--            <column name="postal_code" type="INT"/>-->
+<!--            <column autoIncrement="true" name="id" type="SERIAL">-->
+<!--                <constraints primaryKey="true" primaryKeyName="group_pk"/>-->
+<!--            </column>-->
+<!--            <column name="user_id" type="INT"/>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+<!--    <changeSet author="bobby.washington (generated)" id="1603242221488-6">-->
+<!--        <createTable tableName="users">-->
+<!--            <column autoIncrement="true" name="id" type="SERIAL">-->
+<!--                <constraints primaryKey="true" primaryKeyName="users_pk"/>-->
+<!--            </column>-->
+<!--            <column name="name" type="VARCHAR(225)"/>-->
+<!--            <column name="email" type="VARCHAR(225)"/>-->
+<!--        </createTable>-->
+<!--    </changeSet>-->
+    <changeSet author="bobby.washington (generated)" id="1603305370678-1">
+        <createSequence sequenceName="event_id_seq"/>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1602696624810-2">
-        <createSequence sequenceName="groups_id_seq"/>
+    <changeSet author="bobby.washington (generated)" id="1603305370678-2">
+        <createSequence sequenceName="group_id_seq"/>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1602696624810-3">
-        <createSequence sequenceName="users_id_seq"/>
+    <changeSet author="bobby.washington (generated)" id="1603305370678-3">
+        <createSequence sequenceName="user_id_seq"/>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1602696624810-4">
-        <createTable tableName="events">
-            <column name="id" type="INT">
-                <constraints nullable="false"/>
+    <changeSet author="bobby.washington (generated)" id="1603305370678-4">
+        <createTable tableName="event">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="event_pk"/>
             </column>
             <column name="date" type="date"/>
-            <column name="title" type="VARCHAR(10485760)"/>
-            <column name="description" type="VARCHAR(10485760)"/>
+            <column name="title" type="VARCHAR(225)"/>
+            <column name="description" type="VARCHAR(225)"/>
+<!--            <column name="userid" type="INT"/>-->
         </createTable>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1602696624810-5">
+    <changeSet author="bobby.washington (generated)" id="1603305370678-5">
         <createTable tableName="group">
-            <column name="name" type="VARCHAR(10485760)">
-                <constraints nullable="false"/>
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="group_pk"/>
             </column>
-            <column name="address" type="VARCHAR(10485760)"/>
-            <column name="city" type="VARCHAR(10485760)"/>
-            <column name="state_province" type="VARCHAR(10485760)"/>
-            <column name="country" type="VARCHAR(10485760)"/>
+            <column name="name" type="VARCHAR(225)"/>
+            <column name="address" type="VARCHAR(225)"/>
+            <column name="city" type="VARCHAR(225)"/>
+            <column name="state_province" type="VARCHAR(225)"/>
+            <column name="country" type="VARCHAR(225)"/>
             <column name="postal_code" type="INT"/>
-            <column name="id" type="INT"/>
-            <column name="user_id" type="INT">
-            </column>
+            <column name="user_id" type="INT"/>
+<!--            <column name="eventid" type="INT"/>-->
         </createTable>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1602696624810-6">
+    <changeSet author="bobby.washington (generated)" id="1603305370678-6">
         <createTable tableName="users">
-            <column name="id" type="INT">
-                <constraints nullable="false"/>
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="user_pk"/>
             </column>
-            <column name="name" type="VARCHAR(10485760)"/>
-            <column name="email" type="VARCHAR(10485760)"/>
+            <column name="name" type="VARCHAR(225)"/>
+            <column name="email" type="VARCHAR(225)"/>
         </createTable>
     </changeSet>
+<!--    <changeSet author="bobby.washington (generated)" id="1603305370678-7">-->
+<!--        <addForeignKeyConstraint baseColumnNames="userid" baseTableName="event" constraintName="event__users_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users"/>-->
+<!--    </changeSet>-->
+<!--    <changeSet author="bobby.washington (generated)" id="1603305370678-8">-->
+<!--        <addForeignKeyConstraint baseColumnNames="eventid" baseTableName="group" constraintName="group__events_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="event"/>-->
+<!--    </changeSet>-->
+<!--    <changeSet author="bobby.washington (generated)" id="1603305370678-9">-->
+<!--        <addForeignKeyConstraint baseColumnNames="userid" baseTableName="group" constraintName="group_users__fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users"/>-->
+<!--    </changeSet>-->
 </databaseChangeLog>

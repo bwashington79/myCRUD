@@ -12,6 +12,8 @@ import lombok.ToString;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -24,10 +26,10 @@ import java.util.Collection;
 @Entity
 @Table(name = "users", schema = "public", catalog = "jugtours")
 public class UserEntity {
-    @Id@Column(name = "id", nullable = false)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Basic@Column(name = "name", nullable = true, length = -1)
     private String name;
-    @Basic@Column(name = "email", nullable = true, length = -1)
     private String email;
 }

@@ -12,6 +12,8 @@ import lombok.ToString;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
@@ -27,17 +29,15 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 @Entity
-@Table(name = "events", schema = "public", catalog = "jugtours")
+@Table(name = "event", schema = "public", catalog = "jugtours")
 public class EventEntity {
-    @Id@Column(name = "id", nullable = false)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Basic@Column(name = "date", nullable = true)
     private Instant date;
-    @Basic@Column(name = "title", nullable = true, length = -1)
     private String title;
-    @Basic@Column(name = "description", nullable = true, length = -1)
     private String description;
     @ManyToMany
     private Set<UserEntity> attendees;
-
 }

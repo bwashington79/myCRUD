@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 
 import java.time.Instant;
 import java.util.Collections;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Stream;
 
 @Component
@@ -21,7 +23,8 @@ class Initializer implements CommandLineRunner {
     public void run(String... strings) {
         Stream.of("Denver JUG", "Utah JUG", "Seattle JUG",
                 "Richmond JUG").forEach(name ->
-                repository.save(new GroupEntity(name))
+                repository.saveAndFlush(GroupEntity.builder().name(name)
+                .build())
         );
 
 //        GroupEntity djug = repository.findByName("Denver JUG");
@@ -31,7 +34,7 @@ class Initializer implements CommandLineRunner {
 //                .build();
 //        djug.setEvents(Collections.singleton(e));
 //        repository.save(djug);
-
-        repository.findAll().forEach(System.out::println);
+//
+//        repository.findAll().forEach(System.out::println);
     }
 }

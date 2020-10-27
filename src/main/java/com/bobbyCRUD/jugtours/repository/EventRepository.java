@@ -1,5 +1,6 @@
 package com.bobbyCRUD.jugtours.repository;
 
+//import com.bobbyCRUD.jugtours.model.EventEntity;
 import com.bobbyCRUD.jugtours.model.EventEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
