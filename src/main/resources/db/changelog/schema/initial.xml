@@ -8,27 +8,29 @@
  * SCHEMA
  ********************************************************************************************************************
  -->
-    <changeSet author="bobby.washington (generated)" id="1603305370678-1">
+    <changeSet author="bobby.washington (generated)" id="1">
         <createSequence sequenceName="user_id_seq"/>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1603305370678-2">
+    <changeSet author="bobby.washington (generated)" id="2">
         <createSequence sequenceName="group_id_seq"/>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1603305370678-3">
+    <changeSet author="bobby.washington (generated)" id="3">
         <createSequence sequenceName="event_id_seq"/>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1603305370678-4">
+
+    <changeSet author="bobby.washington (generated)" id="4">
         <createTable tableName="users">
-            <column autoIncrement="true" name="id" type="SERIAL">
+            <column name="id" type="SERIAL">
                 <constraints primaryKey="true" primaryKeyName="user_pk"/>
             </column>
             <column name="name" type="VARCHAR(225)"/>
             <column name="email" type="VARCHAR(225)"/>
         </createTable>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1603305370678-5">
+
+    <changeSet author="bobby.washington (generated)" id="5">
         <createTable tableName="group">
-            <column autoIncrement="true" name="id" type="SERIAL">
+            <column name="id" type="SERIAL">
                 <constraints primaryKey="true" primaryKeyName="group_pk"/>
             </column>
             <column name="name" type="VARCHAR(225)"/>
@@ -40,16 +42,16 @@
 <!--            <column name="user_id" type="INT"/>-->
         </createTable>
     </changeSet>
-    <changeSet author="bobby.washington (generated)" id="1603305370678-6">
+
+    <changeSet author="bobby.washington (generated)" id="6">
         <createTable tableName="event">
-            <column autoIncrement="true" name="id" type="SERIAL">
+            <column name="id" type="SERIAL">
                 <constraints primaryKey="true" primaryKeyName="event_pk"/>
             </column>
             <column name="date" type="date"/>
             <column name="title" type="VARCHAR(225)"/>
             <column name="description" type="VARCHAR(225)"/>
             <column name="group_id" type="int">
-<!--                <constraints nullable="true" foreignKeyName="fk_event_group_id" references="group(id)"/>-->
             </column>
         </createTable>
     </changeSet>

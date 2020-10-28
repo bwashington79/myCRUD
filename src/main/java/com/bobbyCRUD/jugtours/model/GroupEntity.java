@@ -19,6 +19,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.util.Set;
 
@@ -31,7 +32,8 @@ import java.util.Set;
 public class GroupEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "group_generator")
+    @SequenceGenerator(name = "group_generator", sequenceName = "group_id_seq", allocationSize = 1)
     private int id;
     @NonNull
     private String name;

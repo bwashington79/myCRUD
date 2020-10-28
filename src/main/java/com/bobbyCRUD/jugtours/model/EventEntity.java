@@ -18,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import java.sql.Date;
 import java.time.Instant;
@@ -33,7 +34,8 @@ import java.util.Set;
 public class EventEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "event_generator")
+    @SequenceGenerator(name = "event_generator", sequenceName = "event_id_seq", allocationSize = 1)
     private int id;
     private Instant date;
     private String title;
