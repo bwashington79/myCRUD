@@ -16,6 +16,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -39,9 +40,9 @@ public class GroupEntity {
     private String state_province;
     private String country;
     private Integer postalCode;
-    @ManyToOne(cascade=CascadeType.PERSIST)
-    private UserEntity user;
+//    @ManyToOne(cascade=CascadeType.PERSIST)
+//    private UserEntity user;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL, mappedBy = "group_id")
     private Set<EventEntity> events;
 }
