@@ -91,6 +91,7 @@
 					<configuration>
 						<propertyFile>src/main/resources/liquibase.properties</propertyFile>
 						<changeLogFile>src/main/resources/db/changelog/dbchangelog.xml</changeLogFile>
+						<driver>org.postgresql.Driver</driver>
 					</configuration>
 				</plugin>
 			</plugins>
