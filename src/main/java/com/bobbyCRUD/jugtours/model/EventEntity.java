@@ -41,6 +41,6 @@ public class EventEntity {
     private String title;
     private String description;
     private int group_id;
-    @ManyToMany
-    private Set<UserEntity> attendees;
+//    @ManyToMany
+//    private Set<UserEntity> attendees;
 }

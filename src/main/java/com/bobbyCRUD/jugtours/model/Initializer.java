@@ -31,6 +31,7 @@ class Initializer implements CommandLineRunner {
         EventEntity e = EventEntity.builder().title("Full Stack Reactive")
                 .description("Reactive with Spring Boot + React")
                 .date(Instant.parse("2018-12-12T18:00:00.000Z"))
+                .group_id(djug.getId())
                 .build();
         djug.setEvents(Collections.singleton(e));
         repository.save(djug);
