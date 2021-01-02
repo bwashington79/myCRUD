@@ -16,3 +16,11 @@ docker run --name jugtours-postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB
 Rollback:
 
 mvn liquibase:rollback -Dliquibase.rollbackTag=<tag version>
+
+
+from app/ folder type command to run UI 
+yarn start
+
+user credentials
+username - user
+password - comes from spring back-end
